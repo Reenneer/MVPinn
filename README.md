@@ -21,13 +21,13 @@ The model consists of:
 
 - **Input**: Flattened Stokes profiles `[batch_size, 4*n_wavelengths]`
 - **Output**: 9 ME parameters per pixel:
-  - B: Magnetic field strength [0, 4500] G
-  - θ: Inclination [0, π]
-  - χ: Azimuth [0, π]
-  - η₀: Line-to-continuum opacity ratio [0.5, 20]
-  - ΔλD: Doppler width [0.12, 0.25] Å
-  - a: Damping parameter [0, 10]
-  - λ₀: Line center shift [-0.25, 0.25] Å
+  - B: Magnetic field strength 
+  - θ: Inclination 
+  - χ: Azimuth
+  - η₀: Line-to-continuum opacity ratio 
+  - ΔλD: Doppler width 
+  - a: Damping parameter
+  - λ₀: Line center shift 
   - B₀, B₁: Source function parameters
 
 ## Installation
