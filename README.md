@@ -42,8 +42,8 @@ The model consists of:
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd PINN4ME
+git clone https://github.com/Reenneer/MVPinn.git
+cd MVPinn
 ```
 
 2. Create and activate the conda environment:
