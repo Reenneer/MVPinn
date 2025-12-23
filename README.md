@@ -155,7 +155,7 @@ archivePrefix = {arXiv},
 
 ## License
 
-[Specify your license here]
+This project is licensed under the MIT License. See the LICENSE file for details.
 
 ## Acknowledgments
 
@@ -164,6 +164,6 @@ archivePrefix = {arXiv},
 
 ## Contact
 
-For questions or issues, please open an issue on GitHub or contact [your email].
+For questions or issues, please open an issue on GitHub or contact [ql47@njit.edu].
 
 # MVPinn
