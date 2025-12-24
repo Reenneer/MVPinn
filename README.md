@@ -144,5 +144,3 @@ This project is licensed under the MIT License. See the LICENSE file for details
 - PyTorch team for the deep learning framework
 
 For questions or issues, please contact [ql47@njit.edu].
-
-# MVPinn
