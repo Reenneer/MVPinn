@@ -9,15 +9,8 @@ This project implements a Physics-Informed Neural Network (PINN) for performing 
 - **Physics-Informed Architecture**: The ME forward model is integrated into the neural network, allowing end-to-end training with physics constraints
 - **Efficient Training**: Uses PyTorch for GPU-accelerated training
 - **Batch Processing**: Supports batch inference for large datasets
-
-## Architecture
-
-The model consists of:
-- **Neural Network Encoder**: Fully connected network that maps flattened Stokes profiles to ME parameters
-- **ME Physics Model**: Differentiable implementation of the Milne-Eddington forward model using PyTorch
-- **Physics-Informed Loss**: Combined loss function that enforces both data fidelity and physics constraints
-
-### Model Details
+- 
+### Data Description
 
 - **Input**: Flattened Stokes profiles `[batch_size, 4*n_wavelengths]`
 - **Output**: 9 ME parameters per pixel:
