@@ -15,6 +15,7 @@ import sys
 from functools import partial
 from skimage.transform import rotate
 from scipy.ndimage import gaussian_filter
+from multiprocessing import Pool, cpu_count, shared_memory
 
 def get_noise(data1d):
     """Calculate noise estimate from 1D data"""
@@ -418,19 +419,20 @@ def save_results(res_dir: Path, data_file: Path, parmap: np.ndarray,
     """Save inversion results to files"""
     # Create output arrays
     nx, ny = parmap.shape[:2]
-    data = np.zeros((nx, ny, 11))
-    data_wfa = np.zeros((nx, ny, 11))
-
+    
+    # 9 params + continuum = 10
+    data = np.zeros((nx, ny, 10))
+    data_wfa = np.zeros((nx, ny, 10))
     cont = np.mean(original[..., :16, 0], axis=2)
+     
+    data[..., :9] = parmap[..., :9]  
+    data[..., 9] = cont              
     
-    data[..., :7] = parmap[..., :7]
-    data[..., 7] = cont
-    
-    data_wfa[..., :7] = parmap_wfa[..., :7]
-    data_wfa[..., 7] = cont
+    data_wfa[..., :9] = parmap_wfa[..., :9]
+    data_wfa[..., 9] = cont
     
     # Update FITS header
-    hdr['COMMENT'] = 'B total; Incl; Azim; opacity rate; Dopp width; Damping; Dopp Shift; continuum'
+    hdr['COMMENT'] = 'B total; Incl; Azim; opacity rate; Dopp width; Damping; Dopp Shift; B0; B1; continuum'
     
     # Generate output filenames
     tag = 'wfa' if wfa_only else 'inv'
